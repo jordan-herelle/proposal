@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PetSmart × SketchDeck — Creative Partnership 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sd-navy:    #161638;
+    --sd-blue:    #0074E0;
+    --sd-lavender:#B8ACFF;
+    --sd-salmon:  #F07374;
+    --sd-yellow:  #DBE000;
+    --sd-offwhite:#EEECEA;
+    --sd-white:   #FFFFFF;
+    --sd-dark:    #111111;
+    --sd-mid:     #54595F;
+    --sd-border:  rgba(22,22,56,0.1);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--sd-white); color: var(--sd-dark); font-family: 'Inter', sans-serif; font-weight: 400; line-height: 1.6; overflow-x: hidden; }
+  h1, h2, h3, h4, h5, h6 { font-family: 'Syne', sans-serif; font-weight: 600; text-transform: uppercase; }
+
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 56px; height: 72px; background: var(--sd-white); border-bottom: 1px solid var(--sd-border); }
+  .nav-logo img { height: 30px; display: block; }
+  nav ul { list-style: none; display: flex; gap: 32px; align-items: center; }
+  nav a { font-size: 14px; font-weight: 500; color: var(--sd-dark); text-decoration: none; transition: color 0.2s; }
+  nav a:hover { color: var(--sd-blue); }
+  .nav-cta { background: var(--sd-navy) !important; color: var(--sd-white) !important; padding: 10px 24px; border-radius: 50px; font-weight: 600 !important; }
+  .nav-cta:hover { background: var(--sd-blue) !important; }
+
+  /* HERO */
+  .hero { background: var(--sd-navy); min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 120px 80px 80px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 75% 25%, rgba(184,172,255,0.18) 0%, transparent 55%), radial-gradient(ellipse at 15% 85%, rgba(0,116,224,0.14) 0%, transparent 45%); pointer-events: none; }
+  .badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.14); border-radius: 50px; padding: 6px 18px; font-size: 12px; font-weight: 500; color: var(--sd-lavender); letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 40px; width: fit-content; position: relative; z-index: 1; }
+  .hero h1 { font-family: 'Syne', sans-serif; font-weight: 600; text-transform: uppercase; font-size: clamp(54px, 6.5vw, 96px); line-height: 1.0; letter-spacing: -1px; color: var(--sd-white); margin-bottom: 28px; position: relative; z-index: 1; max-width: 860px; }
+  .hero h1 .hl { color: var(--sd-blue); }
+  .hero-sub { font-size: 18px; font-weight: 400; color: rgba(255,255,255,0.58); max-width: 580px; line-height: 1.75; margin-bottom: 48px; position: relative; z-index: 1; }
+  .hero-actions { display: flex; gap: 14px; align-items: center; position: relative; z-index: 1; margin-bottom: 72px; }
+  .btn-blue { background: var(--sd-blue); color: var(--sd-white); padding: 14px 32px; border-radius: 50px; font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.2s, transform 0.15s; }
+  .btn-blue:hover { background: #005bb5; transform: translateY(-1px); }
+  .btn-ghost { border: 1px solid rgba(255,255,255,0.28); color: rgba(255,255,255,0.75); padding: 14px 32px; border-radius: 50px; font-size: 15px; font-weight: 500; text-decoration: none; transition: all 0.2s; }
+  .btn-ghost:hover { border-color: rgba(255,255,255,0.65); color: white; }
+  .hero-logos { display: flex; align-items: center; gap: 16px; margin-bottom: 56px; position: relative; z-index: 1; }
+  .logo-chip { background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13); border-radius: 10px; padding: 10px 18px; display: flex; align-items: center; }
+  .logo-chip img { height: 26px; display: block; filter: brightness(0) invert(1); }
+  .logo-chip.ps { background: rgba(0,102,204,0.2); border-color: rgba(0,102,204,0.4); }
+  .logo-chip.ps img { filter: none; }
+  .logo-x { font-family: 'Syne', sans-serif; font-size: 20px; font-weight: 300; color: rgba(255,255,255,0.22); }
+  .hero-stats { display: flex; gap: 56px; flex-wrap: wrap; padding-top: 56px; border-top: 1px solid rgba(255,255,255,0.1); position: relative; z-index: 1; }
+  .hero-stat strong { display: block; font-family: 'Syne', sans-serif; font-size: 34px; font-weight: 600; text-transform: uppercase; color: var(--sd-white); letter-spacing: 0; margin-bottom: 4px; }
+  .hero-stat span { font-size: 13px; color: rgba(255,255,255,0.42); }
+
+  /* SECTIONS */
+  .sec { padding: 100px 80px; }
+  .sec-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--sd-blue); margin-bottom: 20px; display: block; }
+  .sec-h { font-family: 'Syne', sans-serif; font-weight: 600; text-transform: uppercase; font-size: clamp(36px, 4vw, 58px); line-height: 1.05; letter-spacing: 0px; color: var(--sd-navy); margin-bottom: 18px; }
+  .sec-p { font-size: 17px; color: var(--sd-mid); max-width: 560px; line-height: 1.75; }
+
+  /* WHY EMBEDDED */
+  .why { background: var(--sd-offwhite); }
+  .why .sec-h { color: var(--sd-navy); }
+  .why-head { margin-bottom: 60px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  .card { background: var(--sd-white); border-radius: 16px; padding: 36px 32px; border: 1px solid var(--sd-border); transition: box-shadow 0.25s, transform 0.25s; position: relative; overflow: hidden; }
+  .card:hover { box-shadow: 0 8px 40px rgba(22,22,56,0.1); transform: translateY(-2px); }
+  .card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: var(--sd-blue); border-radius: 16px 16px 0 0; }
+  .card:nth-child(2)::after { background: var(--sd-lavender); }
+  .card:nth-child(3)::after { background: var(--sd-salmon); }
+  .card:nth-child(4)::after { background: var(--sd-yellow); }
+  .card:nth-child(5)::after { background: var(--sd-blue); }
+  .card:nth-child(6)::after { background: var(--sd-lavender); }
+  .card-ico { font-size: 26px; margin-bottom: 18px; display: block; }
+  .card h3 { font-family: 'Syne', sans-serif; font-size: 18px; font-weight: 600; color: var(--sd-navy); margin-bottom: 10px; letter-spacing: -0.2px; }
+  .card p { font-size: 14px; color: var(--sd-mid); line-height: 1.7; }
+  .proof { margin-top: 52px; background: var(--sd-navy); border-radius: 20px; padding: 48px 52px; display: flex; align-items: center; gap: 52px; }
+  .proof-s strong { display: block; font-family: 'Syne', sans-serif; font-size: 50px; font-weight: 600; text-transform: uppercase; color: var(--sd-lavender); letter-spacing: 0; line-height: 1; margin-bottom: 5px; }
+  .proof-s span { font-size: 12px; color: rgba(255,255,255,0.42); text-transform: uppercase; letter-spacing: 0.09em; white-space: nowrap; }
+  .proof-div { width: 1px; height: 60px; background: rgba(255,255,255,0.1); flex-shrink: 0; }
+  .proof-q { flex: 1; }
+  .proof-q p { font-size: 15px; font-style: italic; color: rgba(255,255,255,0.72); line-height: 1.65; margin-bottom: 10px; }
+  .proof-q cite { font-size: 11px; font-style: normal; color: rgba(255,255,255,0.32); text-transform: uppercase; letter-spacing: 0.08em; }
+
+  /* SCOPE */
+  .scope { background: var(--sd-white); }
+  .scope-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 60px; }
+  .scope-block { background: var(--sd-offwhite); border-radius: 16px; padding: 36px; }
+  .scope-block h3 { font-family: 'Syne', sans-serif; font-size: 19px; font-weight: 600; color: var(--sd-navy); margin-bottom: 20px; letter-spacing: -0.2px; display: flex; align-items: center; gap: 10px; }
+  .num-dot { background: var(--sd-blue); color: white; font-size: 11px; font-weight: 600; width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .scope-block ul { list-style: none; }
+  .scope-block li { font-size: 14px; color: var(--sd-mid); padding: 8px 0; border-bottom: 1px solid rgba(22,22,56,0.07); display: flex; align-items: flex-start; gap: 10px; line-height: 1.5; }
+  .scope-block li:last-child { border: none; padding-bottom: 0; }
+  .scope-block li::before { content: '→'; color: var(--sd-blue); font-size: 12px; margin-top: 2px; flex-shrink: 0; }
+
+  /* TIMELINE */
+  .tl-sec { background: var(--sd-navy); }
+  .tl-sec .sec-h { color: var(--sd-white); }
+  .tl-sec .sec-p { color: rgba(255,255,255,0.48); }
+  .tl-sec .sec-tag { color: var(--sd-lavender); }
+  .tl { margin-top: 64px; position: relative; }
+  .tl::before { content: ''; position: absolute; left: 130px; top: 0; bottom: 0; width: 1px; background: rgba(255,255,255,0.1); }
+  .tl-row { display: grid; grid-template-columns: 130px 1fr; gap: 0; position: relative; padding-bottom: 36px; }
+  .tl-row:last-child { padding-bottom: 0; }
+  .tl-d { font-size: 12px; font-weight: 600; color: var(--sd-lavender); padding-top: 18px; padding-right: 24px; text-align: right; line-height: 1.35; }
+  .tl-dot { position: absolute; left: 122px; top: 20px; width: 16px; height: 16px; background: var(--sd-blue); border-radius: 50%; border: 3px solid var(--sd-navy); z-index: 1; }
+  .tl-dot.go { background: var(--sd-lavender); }
+  .tl-c { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 20px 28px; margin-left: 28px; }
+  .tl-c h3 { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 600; color: var(--sd-white); margin-bottom: 6px; letter-spacing: -0.2px; }
+  .tl-c p { font-size: 14px; color: rgba(255,255,255,0.48); line-height: 1.65; }
+
+  /* FEES */
+  .fees-sec { background: var(--sd-offwhite); }
+  .fees-layout { display: grid; grid-template-columns: 1fr 300px; gap: 40px; margin-top: 60px; align-items: start; }
+  .table-wrap { background: var(--sd-white); border-radius: 16px; overflow: hidden; border: 1px solid var(--sd-border); }
+  table { width: 100%; border-collapse: collapse; }
+  th { background: var(--sd-navy); color: rgba(255,255,255,0.55); font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; padding: 16px 20px; text-align: left; }
+  td { padding: 13px 20px; font-size: 14px; color: var(--sd-mid); border-bottom: 1px solid rgba(22,22,56,0.06); vertical-align: middle; }
+  tr:last-child td { border-bottom: none; background: rgba(0,116,224,0.05); font-family: 'Syne', sans-serif; font-weight: 600; color: var(--sd-navy); font-size: 16px; border-top: 2px solid var(--sd-blue); }
+  tr:hover:not(:last-child) td { background: rgba(22,22,56,0.018); }
+  .fees-side { display: flex; flex-direction: column; gap: 14px; }
+  .total-card { background: var(--sd-blue); border-radius: 16px; padding: 34px 26px; }
+  .total-card p { font-size: 11px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.68); margin-bottom: 6px; }
+  .total-card strong { display: block; font-family: 'Syne', sans-serif; font-size: 38px; font-weight: 600; text-transform: uppercase; color: white; letter-spacing: 0; margin-bottom: 4px; }
+  .total-card span { font-size: 13px; color: rgba(255,255,255,0.62); }
+  .detail-card { background: var(--sd-white); border-radius: 16px; padding: 22px 26px; border: 1px solid var(--sd-border); }
+  .drow { display: flex; justify-content: space-between; font-size: 13px; padding: 8px 0; border-bottom: 1px solid rgba(22,22,56,0.06); }
+  .drow:last-child { border: none; padding-bottom: 0; }
+  .drow span:first-child { color: var(--sd-mid); }
+  .drow span:last-child { font-weight: 600; color: var(--sd-navy); }
+
+  /* SLA */
+  .sla-sec { background: var(--sd-white); }
+  .grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 60px; }
+  .sla-c { background: var(--sd-offwhite); border-radius: 14px; padding: 26px 22px; border: 1px solid transparent; transition: border-color 0.2s; }
+  .sla-c:hover { border-color: var(--sd-blue); }
+  .sla-v { font-family: 'Syne', sans-serif; font-size: 30px; font-weight: 600; text-transform: uppercase; color: var(--sd-blue); letter-spacing: 0; margin-bottom: 4px; }
+  .sla-t { font-family: 'Syne', sans-serif; font-size: 14px; font-weight: 600; color: var(--sd-navy); margin-bottom: 8px; }
+  .sla-d { font-size: 13px; color: var(--sd-mid); line-height: 1.6; }
+
+  /* TEAM */
+  .team-sec { background: var(--sd-offwhite); }
+  .grid-4t { display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 56px; }
+  .team-c { background: var(--sd-white); border-radius: 14px; padding: 26px 22px; border: 1px solid var(--sd-border); transition: box-shadow 0.2s; }
+  .team-c:hover { box-shadow: 0 4px 24px rgba(22,22,56,0.08); }
+  .avatar { width: 50px; height: 50px; background: var(--sd-navy); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 600; color: white; margin-bottom: 14px; }
+  .team-c h3 { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 600; color: var(--sd-navy); margin-bottom: 2px; }
+  .tc-role { font-size: 12px; color: var(--sd-blue); font-weight: 500; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .tc-email { font-size: 12px; color: var(--sd-mid); }
+
+  /* TERMS */
+  .terms-sec { background: var(--sd-white); }
+  .grid-3t { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-top: 56px; }
+  .term-c { background: var(--sd-offwhite); border-radius: 14px; padding: 30px 26px; border: 1px solid transparent; transition: border-color 0.2s; }
+  .term-c:hover { border-color: var(--sd-lavender); }
+  .term-c h3 { font-family: 'Syne', sans-serif; font-size: 17px; font-weight: 600; color: var(--sd-navy); margin-bottom: 4px; }
+  .term-ref { font-size: 11px; color: var(--sd-mid); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 12px; display: block; }
+  .term-c p { font-size: 14px; color: var(--sd-mid); line-height: 1.7; }
+
+  /* CTA */
+  .cta { background: var(--sd-blue); padding: 100px 80px; text-align: center; position: relative; overflow: hidden; }
+  .cta::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(184,172,255,0.28) 0%, transparent 55%); }
+  .cta h2 { font-family: 'Syne', sans-serif; font-size: clamp(40px, 5vw, 68px); font-weight: 600; text-transform: uppercase; letter-spacing: 0; color: white; margin-bottom: 18px; position: relative; z-index: 1; }
+  .cta p { font-size: 17px; color: rgba(255,255,255,0.68); max-width: 480px; margin: 0 auto 44px; position: relative; z-index: 1; }
+  .cta-btns { display: flex; gap: 14px; justify-content: center; position: relative; z-index: 1; }
+  .btn-w { background: white; color: var(--sd-navy); padding: 14px 34px; border-radius: 50px; font-size: 15px; font-weight: 600; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
+  .btn-w:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.18); }
+  .btn-ow { border: 2px solid rgba(255,255,255,0.38); color: rgba(255,255,255,0.82); padding: 14px 34px; border-radius: 50px; font-size: 15px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+  .btn-ow:hover { border-color: white; color: white; }
+
+  /* FOOTER */
+  footer { background: var(--sd-navy); padding: 40px 80px; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.07); }
+  footer img { height: 22px; filter: brightness(0) invert(1); opacity: 0.65; }
+  footer p { font-size: 12px; color: rgba(255,255,255,0.28); }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .fade { opacity: 0; animation: fadeUp 0.65s ease forwards; }
+  .d1 { animation-delay: 0.08s; } .d2 { animation-delay: 0.2s; } .d3 { animation-delay: 0.32s; } .d4 { animation-delay: 0.44s; }
+
+  @media (max-width: 960px) {
+    nav { padding: 0 20px; } nav ul { display: none; }
+    .sec { padding: 60px 20px; } .hero { padding: 100px 20px 56px; }
+    .hero h1 { font-size: 48px; } .hero-stats { gap: 28px; }
+    .grid-3, .grid-4, .grid-4t, .grid-3t, .scope-grid { grid-template-columns: 1fr; }
+    .fees-layout { grid-template-columns: 1fr; }
+    .proof { flex-direction: column; padding: 32px; }
+    .proof-div { width: 40px; height: 1px; }
+    .tl::before { left: 110px; } .tl-dot { left: 102px; }
+    footer { flex-direction: column; gap: 14px; text-align: center; }
+    .cta { padding: 64px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="https://sketchdeck.com/wp-content/uploads/2022/01/SD_logo-aligned.svg" alt="SketchDeck">
+  </a>
+  <ul>
+    <li><a href="#why">Why Embedded</a></li>
+    <li><a href="#scope">Scope</a></li>
+    <li><a href="#timeline">Timeline</a></li>
+    <li><a href="#fees">Investment</a></li>
+    <li><a href="#contact" class="nav-cta">View Proposal →</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="badge fade d1">Statement of Work · March 2026</div>
+
+  <div class="hero-logos fade d1">
+    <div class="logo-chip">
+      <img src="https://sketchdeck.com/wp-content/uploads/2022/01/SD_logo-aligned.svg" alt="SketchDeck">
+    </div>
+    <div class="logo-x">×</div>
+    <div class="logo-chip ps">
+      <svg height="26" viewBox="0 0 160 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text y="26" font-family="'Arial Black',Arial,sans-serif" font-size="26" font-weight="900" fill="#0066CC">Pet</text>
+        <text x="54" y="26" font-family="'Arial Black',Arial,sans-serif" font-size="26" font-weight="900" fill="#CC0000">Smart</text>
+      </svg>
+    </div>
+  </div>
+
+  <h1 class="fade d2">Your next-generation<br>creative <span class="hl">partnership.</span></h1>
+  <p class="hero-sub fade d3">A fully managed embedded creative program that puts skilled designers inside PetSmart's teams — with dedicated program management, zero employer overhead, and a single point of contact for everything.</p>
+  <div class="hero-actions fade d4">
+    <a href="#why" class="btn-blue">See why it works →</a>
+    <a href="#contact" class="btn-ghost">View full proposal</a>
+  </div>
+
+  <div class="hero-stats fade d4">
+    <div class="hero-stat"><strong>May 4, 2026</strong><span>Program Go-Live</span></div>
+    <div class="hero-stat"><strong>$2.7M</strong><span>Investment (NTE)</span></div>
+    <div class="hero-stat"><strong>1 Day</strong><span>Response SLA</span></div>
+    <div class="hero-stat"><strong>90 Days</strong><span>Calibration Period</span></div>
+    <div class="hero-stat"><strong>4 Days/wk</strong><span>On-Site · Phoenix HQ</span></div>
+  </div>
+</section>
+
+<!-- WHY EMBEDDED -->
+<section class="sec why" id="why">
+  <div class="why-head">
+    <span class="sec-tag">The case for embedded teams</span>
+    <h2 class="sec-h">Why this model wins<br>for PetSmart.</h2>
+    <p class="sec-p">Most creative staffing arrangements force a choice between control and flexibility. The SketchDeck embedded model delivers both — talent that shows up, learns your brand, and is managed entirely by us.</p>
+  </div>
+  <div class="grid-3">
+    <div class="card"><span class="card-ico">🏢</span><h3>They work in your building</h3><p>Embedded resources operate on-site at PetSmart's Phoenix HQ four days a week — inside your workflows, tools, and culture from day one. No re-briefing on every project.</p></div>
+    <div class="card"><span class="card-ico">⚡</span><h3>Zero employer overhead</h3><p>SketchDeck handles all W-2 employment, benefits, HR, performance management, and recruiting. PetSmart gets the creative output without any administrative burden.</p></div>
+    <div class="card"><span class="card-ico">🎯</span><h3>One point of contact</h3><p>A dedicated Program Manager owns intake, stakeholder updates, resource utilization, and escalations — your team manages outcomes, not vendors.</p></div>
+    <div class="card"><span class="card-ico">📈</span><h3>Scale up or down</h3><p>Team composition can flex as business needs evolve — roles added, reduced, or respecced by mutual agreement. The program moves with your marketing calendar.</p></div>
+    <div class="card"><span class="card-ico">🔒</span><h3>Rate protection at launch</h3><p>For transitioning contractors, SketchDeck locks in the same rate and markup structure for the first 12 months. Pricing protected from day one — no surprises.</p></div>
+    <div class="card"><span class="card-ico">🔄</span><h3>Continuity built in</h3><p>When a team member departs, recruiting is initiated within 3 business days. PetSmart never loses momentum during a transition.</p></div>
+  </div>
+  <div class="proof">
+    <div class="proof-s"><strong>60%</strong><span>Cost reduction<br>per email · REI</span></div>
+    <div class="proof-div"></div>
+    <div class="proof-s"><strong>120%</strong><span>Increase in<br>email output · REI</span></div>
+    <div class="proof-div"></div>
+    <div class="proof-q">
+      <p>REI faced stagnant results from outsourced email creative. SketchDeck embedded a focused team that brought creative production fully in-house — dramatically improving both speed and quality. That's the model we're bringing to PetSmart.</p>
+      <cite>SketchDeck Embedded Teams · REI Co-op Case Study</cite>
+    </div>
+  </div>
+</section>
+
+<!-- SCOPE -->
+<section class="sec scope" id="scope">
+  <span class="sec-tag">Scope of work</span>
+  <h2 class="sec-h">What we deliver.</h2>
+  <p class="sec-p">Four integrated pillars covering every dimension of PetSmart's creative operations.</p>
+  <div class="scope-grid">
+    <div>
+      <div class="scope-block">
+        <h3><span class="num-dot">1</span>Program Management & Oversight</h3>
+        <ul>
+          <li>Dedicated Program Manager from April 20</li>
+          <li>Centralized intake coordination & prioritization</li>
+          <li>Workload monitoring & resource utilization tracking</li>
+          <li>Weekly operational updates to stakeholders</li>
+          <li>Monthly performance reports</li>
+          <li>Consultative workflow improvement recommendations</li>
+        </ul>
+      </div>
+      <div class="scope-block" style="margin-top:16px">
+        <h3><span class="num-dot">2</span>Workforce Transition & Talent</h3>
+        <ul>
+          <li>Transition of existing contractors to SketchDeck W-2</li>
+          <li>Coordinated onboarding & HR administration</li>
+          <li>Ongoing performance management & coaching</li>
+          <li>Replacement recruiting within 3 business days</li>
+          <li>Sourcing for new or evolving creative roles</li>
+        </ul>
+      </div>
+    </div>
+    <div>
+      <div class="scope-block">
+        <h3><span class="num-dot">3</span>Embedded Creative Production</h3>
+        <ul>
+          <li>Graphic & digital design production</li>
+          <li>Marketing & campaign asset development</li>
+          <li>Presentation design & internal communications</li>
+          <li>Email, social & promotional digital assets</li>
+          <li>Creative operations & project coordination</li>
+          <li>Work inside PetSmart's tools & brand standards</li>
+        </ul>
+      </div>
+      <div class="scope-block" style="margin-top:16px">
+        <h3><span class="num-dot">4</span>Overflow & Supplemental Support</h3>
+        <ul>
+          <li>Surge capacity via SketchDeck's broader network</li>
+          <li>Access to Futureman & Markacy capabilities</li>
+          <li>All overflow managed by the Program Manager</li>
+          <li>Overflow scoped via written change orders</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="sec tl-sec" id="timeline">
+  <span class="sec-tag">Implementation plan</span>
+  <h2 class="sec-h">From kickoff to<br>full velocity.</h2>
+  <p class="sec-p">Five structured phases to minimize disruption and establish a stable operational foundation.</p>
+  <div class="tl">
+    <div class="tl-row">
+      <div class="tl-d">April 20<br>2026</div>
+      <div class="tl-dot"></div>
+      <div class="tl-c"><h3>Phase 1 — Program Manager Onboards</h3><p>Stakeholder introductions, organizational mapping, workflow review, IT coordination, and transition sequencing for existing contractors.</p></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-d">Wk of<br>Apr 20</div>
+      <div class="tl-dot"></div>
+      <div class="tl-c"><h3>Phase 2 — Contractor Transition Outreach</h3><p>SketchDeck recruiters begin formal W-2 transition discussions with tenured contractors, coordinated with PetSmart leadership.</p></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-d">Late April</div>
+      <div class="tl-dot"></div>
+      <div class="tl-c"><h3>Phase 3 — Implementation Workshops</h3><p>Joint working sessions covering intake processes, workflow mapping, SLA targets, governance cadence, and documentation of key operating processes.</p></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-d">May 4<br>2026</div>
+      <div class="tl-dot go"></div>
+      <div class="tl-c" style="border-color:rgba(184,172,255,0.25)"><h3>Phase 4 — Program Go-Live 🚀</h3><p>All transitioned resources operating as SketchDeck W-2 employees within PetSmart's creative workflows. Immediate focus on stabilization and integration.</p></div>
+    </div>
+    <div class="tl-row">
+      <div class="tl-d">May–Jul<br>2026</div>
+      <div class="tl-dot"></div>
+      <div class="tl-c"><h3>Phase 5 — 90-Day Calibration</h3><p>Program Manager evaluates delivery patterns and operational priorities. Refined KPIs and performance benchmarks locked for the remainder of the engagement.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEES -->
+<section class="sec fees-sec" id="fees">
+  <span class="sec-tag">Investment</span>
+  <h2 class="sec-h">Program fees.</h2>
+  <p class="sec-p">Fixed monthly retainer covering embedded team capacity, program management, recruiting infrastructure, and operational support.</p>
+  <div class="fees-layout">
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Month</th><th>Description</th><th>Amount</th></tr></thead>
+        <tbody>
+          <tr><td>April 2026</td><td>Program Manager onboarding, transition prep & workshops</td><td>$14,000</td></tr>
+          <tr><td>May 2026</td><td>Embedded creative program — full capacity</td><td>$245,511</td></tr>
+          <tr><td>June 2026</td><td>Embedded creative program — full capacity</td><td>$245,511</td></tr>
+          <tr><td>July 2026</td><td>Embedded creative program — full capacity</td><td>$245,511</td></tr>
+          <tr><td>Aug – Dec 2026</td><td>Embedded creative program — full capacity (×5 months)</td><td>$1,227,555</td></tr>
+          <tr><td>Jan – Mar 2027</td><td>Embedded creative program — full capacity (×3 months)</td><td>$736,533</td></tr>
+          <tr><td colspan="2"><strong>Total Contract Value (Not-to-Exceed)</strong></td><td><strong>$2,714,621</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="fees-side">
+      <div class="total-card">
+        <p>Not-to-Exceed Total</p>
+        <strong>$2,714,621</strong>
+        <span>April 2026 – March 2027</span>
+      </div>
+      <div class="detail-card">
+        <div class="drow"><span>Monthly Run Rate</span><span>$245,511</span></div>
+        <div class="drow"><span>Payment Terms</span><span>Net 30</span></div>
+        <div class="drow"><span>Invoiced</span><span>Monthly in Arrears</span></div>
+        <div class="drow"><span>Expense Upcharge</span><span>20% (pre-approved)</span></div>
+        <div class="drow"><span>Billing Entity</span><span>SketchDeck, LLC</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SLA -->
+<section class="sec sla-sec">
+  <span class="sec-tag">Service levels</span>
+  <h2 class="sec-h">Commitments you<br>can hold us to.</h2>
+  <p class="sec-p">Eight defined SLAs governing communication, reporting, and operational governance from day one.</p>
+  <div class="grid-4">
+    <div class="sla-c"><div class="sla-v">1 Day</div><div class="sla-t">Communication Response</div><p class="sla-d">Questions, operational issues, and escalations acknowledged within 1 business day.</p></div>
+    <div class="sla-c"><div class="sla-v">1 Day</div><div class="sla-t">Intake Review</div><p class="sla-d">New work requests reviewed and prioritized in collaboration with PetSmart stakeholders.</p></div>
+    <div class="sla-c"><div class="sla-v">Weekly</div><div class="sla-t">Operational Update</div><p class="sla-d">Workstream visibility, team capacity, key risks, and priorities delivered every week.</p></div>
+    <div class="sla-c"><div class="sla-v">Monthly</div><div class="sla-t">Performance Report</div><p class="sla-d">Delivery trends, capacity utilization, and recommended improvements each month.</p></div>
+    <div class="sla-c"><div class="sla-v">3 Days</div><div class="sla-t">Replacement Recruiting</div><p class="sla-d">Recruiting initiated within 3 business days of any departure or replacement request.</p></div>
+    <div class="sla-c"><div class="sla-v">1 Day</div><div class="sla-t">Issue Escalation</div><p class="sla-d">Delivery blockers and staffing risks escalated within 1 business day of identification.</p></div>
+    <div class="sla-c"><div class="sla-v">Quarterly</div><div class="sla-t">Workflow Optimization</div><p class="sla-d">At least one documented process improvement recommendation per quarter.</p></div>
+    <div class="sla-c"><div class="sla-v">Weekly</div><div class="sla-t">Capacity Transparency</div><p class="sla-d">Full visibility into team capacity, workstreams, and upcoming availability each week.</p></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="sec team-sec">
+  <span class="sec-tag">The team</span>
+  <h2 class="sec-h">Your contacts.</h2>
+  <p class="sec-p">Clear accountability on both sides of the engagement.</p>
+  <div class="grid-4t">
+    <div class="team-c"><div class="avatar">AK</div><h3>Andy Keck</h3><p class="tc-role">Executive Sponsor · SketchDeck</p><p class="tc-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="65040b011c4b0e00060e25160e0011060d0100060e4b060a08">[email&#160;protected]</a></p></div>
+    <div class="team-c"><div class="avatar" style="background:var(--sd-blue)">JH</div><h3>Jordan Herelle</h3><p class="tc-role">BD Manager · SketchDeck</p><p class="tc-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1e74716c7a7f7030767b6c7b72727b5e6d757b6a7d767a7b7d75307d7173">[email&#160;protected]</a></p></div>
+    <div class="team-c"><div class="avatar" style="background:var(--sd-mid)">JE</div><h3>Jeff Edwards</h3><p class="tc-role">BD Manager · 24 Seven</p><p class="tc-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="caa0afaebdabb8aeb98af8feb9afbcafa4a3a4a9e4a9a5a7">[email&#160;protected]</a></p></div>
+    <div class="team-c"><div class="avatar" style="background:#CC0000">AK</div><h3>Amy Kerns</h3><p class="tc-role">Client Contact · PetSmart</p><p class="tc-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="7c1d17190e120f3c0c19080f111d0e08521f1311">[email&#160;protected]</a></p></div>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section class="sec terms-sec">
+  <span class="sec-tag">Key terms</span>
+  <h2 class="sec-h">How we work together.</h2>
+  <div class="grid-3t">
+    <div class="term-c"><h3>Employment Model</h3><span class="term-ref">Section 8.3</span><p>All SketchDeck resources are W-2 employees or authorized subcontractors. PetSmart bears zero employer-of-record liability.</p></div>
+    <div class="term-c"><h3>Rate Protection</h3><span class="term-ref">Section 7</span><p>Replacement hires for transitioning contractors locked at the same rate and markup for the first 12 months. Pricing stability guaranteed.</p></div>
+    <div class="term-c"><h3>IP Ownership</h3><span class="term-ref">Section 10.3</span><p>PetSmart owns all deliverables produced under this agreement. Your brand assets and creative output are 100% yours.</p></div>
+    <div class="term-c"><h3>Termination</h3><span class="term-ref">Section 8.2</span><p>Either party may terminate with 90 days written notice. PetSmart pays only fees accrued through the termination date. No penalties.</p></div>
+    <div class="term-c"><h3>Capacity Flexibility</h3><span class="term-ref">Section 5.2</span><p>Team composition adjustable by mutual agreement. Fees adjust accordingly in the next billing cycle within the NTE.</p></div>
+    <div class="term-c"><h3>Knowledge Transfer</h3><span class="term-ref">Section 8.4</span><p>All program documentation delivered to PetSmart within 30 days of termination. No knowledge held hostage.</p></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta" id="contact">
+  <h2>Ready to redefine<br>what's possible?</h2>
+  <p>This proposal is ready to move forward. Reach out to the SketchDeck team to finalize signatures and lock in the May 4 go-live.</p>
+  <
